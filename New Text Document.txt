@@ -1,0 +1,9 @@
+http://google.github.io/material-design-icons/#icon-font-for-the-web
+
+https://scotch.io/tutorials/angular-routing-using-ui-router
+
+http://icanbeacoder.com/codes
+
+https://github.com/ivpusic/angular-cookie
+
+https://github.com/angular-ui/ui-router/wiki/Frequently-Asked-Questions#how-to-configure-your-server-to-work-with-html5mode  Usefull

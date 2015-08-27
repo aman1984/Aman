@@ -1,0 +1,42 @@
+<div class="container-fluid" ng-clock>
+<h1 class="text-primary">Welcome to Code</h1>
+<div class="col-md-12">
+	<div class="col-md-6" style="max-height: 500px">
+<pre class="" ng-bind-html-unsafe="text|pretty">
+
+</pre>
+	    <h3>Codes <button class="btn btn-link" ng-click="newCodeAdd()">Add new</button></h3>
+	    <input type="text" placeholder="Search code" ng-model="searchCode" class="form-control"><br>
+	    <div class="list-group">
+		  <a href="" ng-repeat="code in codes | filter: searchCode" class="list-group-item" ng-click="viewCode($index)"><b>{{code.title}}</b> ({{code.language}})</a>
+		</div>
+	</div>
+	<div class="col-md-6">
+	    <form name="userForm" ng-submit="add_code()" role="form">
+	        <div class="form-group" ng-class=" { 'has-error' : userForm.code_title.$invalid && userForm.code_title.$touched}">
+	            <label for="code_title">Title</label>
+	            <i class="fa fa-key"></i>
+	            <input type="text" name="code_title" id="code_title" class="form-control" ng-model="currentCode.code_title" required />
+	            <span ng-show="userForm.code_title.$touched && userForm.code_title.$error.required" class="help-block">Title is required</span>
+	        </div>
+	        <div class="form-group" ng-class=" { 'has-error' : userForm.code_language.$invalid && userForm.code_language.$touched}">
+	            <label for="code_language">Language</label>
+	            <i class="fa fa-key"></i>
+	            <input type="text" name="code_language" id="code_language" class="form-control" ng-model="currentCode.code_language" required />
+	            <span ng-show="userForm.code_language.$touched && userForm.code_language.$error.required" class="help-block">Language is required</span>
+	        </div>
+	        <div class="form-group" ng-class=" { 'has-error' : userForm.code_language.$invalid && userForm.code_language.$touched}">
+	            <label for="code_language">Code</label>
+	            <i class="fa fa-key"></i>
+	            <textarea name="code_body" id="code_body" class="form-control" ng-model="currentCode.code_body" rows="15" required></textarea> 
+	            <span ng-show="userForm.code_body.$touched && userForm.code_body.$error.required" class="help-block">Code is required</span>
+	        </div>
+	        <div class="form-actions">
+	            <button type="submit" ng-disabled="userForm.$invalid || dataLoading" ng-show="!view_existing" class="btn btn-danger">Add</button>
+	            <button type="button" ng-click="updateCode(codeId)" ng-show="view_existing" ng-disabled="userForm.$invalid || dataLoading" class="btn btn-success">Save</button>
+	            <img ng-if="dataLoading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="/>
+	        </div>
+	    </form>
+	</div>
+</div>
+</div>
